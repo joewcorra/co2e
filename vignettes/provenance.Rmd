@@ -1,0 +1,65 @@
+---
+title: "Data Provenance"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data Provenance}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(co2e)
+```
+
+## Overview
+
+`co2e` bundles three lookup tables (`gwp_values`, `gases`, `gas_synonyms`),
+built from a small set of source files in `data-raw/`. This vignette
+documents where each value comes from and the choices made assembling them,
+so a user checking a specific GWP figure against a published table can
+trace it back to its source.
+
+## Sources
+
+| File | Contents | Source |
+|---|---|---|
+| `gwp_shortlist_epa.csv` | GWP values by gas, IPCC Assessment Report, and time horizon | EPA/data.gov IPCC AR4-AR6 GWPs (Federal LCA Commons), [doi:10.23719/1529821](https://doi.org/10.23719/1529821); AR6 methane fossil/non-fossil split rows from the GHG Protocol's *Global Warming Potential Values* (August 2024) |
+| `gas_identity.csv` | Chemical formula and CAS Registry Number per gas | IPCC AR6 WGI Chapter 7 Supplementary Material, Table 7.SM.7 (via the chrisroadmap/ar6 CSV mirror); `gas_group` assigned manually |
+| `gas_synonyms_seed.csv` | Documented alternate names per gas | GHG Protocol *Global Warming Potential Values* (August 2024) footnotes, IPCC AR6 Table 7.SM.7, and EPA/data.gov naming |
+
+`gas_synonyms` also includes each gas's EPA/data.gov name, added
+automatically from `gwp_shortlist_epa.csv`'s `epa_name` column during the
+build (see `data-raw/build_data.R`).
+
+## AR6 values are taken from the final published tables
+
+An early, nonfinal draft of the AR6 GWP tables circulated with different
+figures for CFC-11 and CFC-12 than what IPCC ultimately published. `co2e`
+was built directly from the final published AR6 source tables, not that
+draft, so no discrepancy applies to the values in this package.
+
+## Scope
+
+- **Single substances only.** `gases$is_blend` is currently always `FALSE`
+  — refrigerant blends (e.g. R-410A) and ASHRAE R-number naming generally
+  are not yet in scope. `standardize_gas()` will return `"unmatched"` for
+  R-number names like `"R-134a"` until blend support is added.
+- **Three time horizons.** Only the 20-, 100-, and 500-year GWP horizons
+  are included, matching what the source tables report.
+
+## Reproducing the built data
+
+The tables shipped in `data/` are built from the CSVs in `data-raw/` by
+`data-raw/build_data.R`. Run it from the package root to regenerate them
+after editing a source CSV:
+
+```r
+source("data-raw/build_data.R")
+```

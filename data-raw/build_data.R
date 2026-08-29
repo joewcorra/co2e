@@ -13,8 +13,8 @@ library(readr)
 #                              AR6 Table 7.SM.7, and EPA/data.gov naming
 
 gwp_wide <- read_csv("data-raw/gwp_shortlist_epa.csv", show_col_types = FALSE)
-gas_identity_raw <- read_csv("data-raw/gas_identity.csv", show_col_types = FALSE)
-gas_synonyms_raw <- read_csv("data-raw/gas_synonyms_seed.csv", show_col_types = FALSE)
+gas_identity <- read_csv("data-raw/gas_identity.csv", show_col_types = FALSE)
+gas_synonyms <- read_csv("data-raw/gas_synonyms_seed.csv", show_col_types = FALSE)
 
 # ---- Build gwp_values (long format: one row per gas x AR x horizon) ----
 
@@ -34,7 +34,7 @@ gwp_values <- gwp_wide |>
 
 # ---- Build gases (identity table) ----
 
-gases <- gas_identity_raw |>
+gases <- gas_identity |>
   mutate(
     is_blend = FALSE  # no blends in scope yet; all shortlist entries are single substances
   ) |>
@@ -52,7 +52,7 @@ epa_name_synonyms <- gwp_wide |>
   rename(synonym = epa_name)
 
 gas_synonyms <- bind_rows(
-  gas_synonyms_raw,
+  gas_synonyms,
   epa_name_synonyms
 ) |>
   distinct(gas_id, synonym, .keep_all = TRUE)
