@@ -4,7 +4,7 @@
 #' and time horizon. Vectorized over `gas`.
 #'
 #' @param gas Character vector of gas identifiers (e.g. `"HFC-134a"`). Must
-#'   match `gases$gas_id` exactly — use [standardize_gas()] first if your
+#'   match `gases$gas_id` exactly - use [standardize_gas()] first if your
 #'   input data uses non-canonical names.
 #' @param ar Assessment report: one of `"AR4"`, `"AR5"`, `"AR6"`.
 #' @param horizon Time horizon in years: one of `20`, `100`, `500`.

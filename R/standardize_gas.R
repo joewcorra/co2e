@@ -16,7 +16,7 @@ normalize_key <- function(x) {
 #'
 #' Matches input names against `gases$gas_id` first, then against
 #' `gas_synonyms$synonym`, using a normalized (case/whitespace/hyphen
-#' insensitive) comparison. No fuzzy matching is performed — an unmatched
+#' insensitive) comparison. No fuzzy matching is performed - an unmatched
 #' name returns `NA`, it is never guessed at.
 #'
 #' @param x Character vector of gas names as they appear in your data.

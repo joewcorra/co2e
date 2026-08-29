@@ -48,7 +48,7 @@ draft, so no discrepancy applies to the values in this package.
 ## Scope
 
 - **Single substances only.** `gases$is_blend` is currently always `FALSE`
-  — refrigerant blends (e.g. R-410A) and ASHRAE R-number naming generally
+  - refrigerant blends (e.g. R-410A) and ASHRAE R-number naming generally
   are not yet in scope. `standardize_gas()` will return `"unmatched"` for
   R-number names like `"R-134a"` until blend support is added.
 - **Three time horizons.** Only the 20-, 100-, and 500-year GWP horizons

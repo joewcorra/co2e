@@ -8,7 +8,7 @@ gwp(gas, ar = "AR6", horizon = 100)
 }
 \arguments{
 \item{gas}{Character vector of gas identifiers (e.g. \code{"HFC-134a"}). Must
-match \code{gases$gas_id} exactly — use \code{\link[=standardize_gas]{standardize_gas()}} first if your
+match \code{gases$gas_id} exactly - use \code{\link[=standardize_gas]{standardize_gas()}} first if your
 input data uses non-canonical names.}
 
 \item{ar}{Assessment report: one of \code{"AR4"}, \code{"AR5"}, \code{"AR6"}.}

@@ -16,7 +16,7 @@ A tibble with columns \code{input}, \code{gas_id} (\code{NA} if unmatched), and
 \description{
 Matches input names against \code{gases$gas_id} first, then against
 \code{gas_synonyms$synonym}, using a normalized (case/whitespace/hyphen
-insensitive) comparison. No fuzzy matching is performed — an unmatched
+insensitive) comparison. No fuzzy matching is performed - an unmatched
 name returns \code{NA}, it is never guessed at.
 }
 \examples{

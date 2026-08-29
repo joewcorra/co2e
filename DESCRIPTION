@@ -23,10 +23,14 @@ Suggests:
     readr,
     testthat (>= 3.0.0),
     knitr,
-    rmarkdown
+    rmarkdown,
+    spelling
 Config/testthat/edition: 3
 Depends: 
     R (>= 3.5)
 LazyData: true
 Config/roxygen2/version: 8.0.0
 VignetteBuilder: knitr
+Language: en-US
+URL: https://github.com/joewcorra/co2e
+BugReports: https://github.com/joewcorra/co2e/issues

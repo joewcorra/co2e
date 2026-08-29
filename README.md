@@ -1,5 +1,9 @@
 # co2e
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/joewcorra/co2e/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joewcorra/co2e/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 Curated IPCC Global Warming Potential (GWP) values, gas name
 standardization, and CO2-equivalent conversion for R.
 
