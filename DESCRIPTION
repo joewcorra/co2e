@@ -1,8 +1,8 @@
 Package: co2e
 Title: Global Warming Potential Lookups and CO2-Equivalent Conversion
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R:
-    person("Joe", "Corra", email = "Joewcorra@gmail.com", role = c("aut", "cre"))
+    person("Joe", "Corra", email = "Joewcorra@gmail.com", role = c("aut", "cre", "cph"))
 Description: Provides curated Global Warming Potential (GWP) values from
     IPCC Assessment Reports 4 through 6, gas name standardization across
     documented naming variants (IUPAC/common names, per-report naming
@@ -26,8 +26,8 @@ Suggests:
     rmarkdown,
     spelling
 Config/testthat/edition: 3
-Depends: 
-    R (>= 3.5)
+Depends:
+    R (>= 4.1.0)
 LazyData: true
 Config/roxygen2/version: 8.0.0
 VignetteBuilder: knitr

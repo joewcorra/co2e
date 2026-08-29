@@ -10,13 +10,14 @@
 #' @examples
 #' gwp_compare("CFC-11")
 #'
+#' @importFrom dplyr .data
 #' @export
 gwp_compare <- function(gas, horizon = 100) {
   co2e::gwp_values |>
     dplyr::filter(
-      gas_id == gas,
-      horizon == !!horizon
+      .data$gas_id == gas,
+      .data$horizon == !!horizon
     ) |>
-    dplyr::select(ar, gwp) |>
-    dplyr::arrange(ar)
+    dplyr::select("ar", "gwp") |>
+    dplyr::arrange(.data$ar)
 }

@@ -5,3 +5,7 @@
 ^doc$
 ^Meta$
 ^\.github$
+^\.claude$
+^cran-comments\.md$
+^co2e\.Rcheck$
+^co2e_.*\.tar\.gz$

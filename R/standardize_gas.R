@@ -32,19 +32,25 @@ standardize_gas <- function(x) {
   key <- normalize_key(x)
 
   gas_id_lookup <- co2e::gases |>
-    dplyr::transmute(key = normalize_key(gas_id), gas_id, match_type = "gas_id")
+    dplyr::transmute(
+      key = normalize_key(.data$gas_id), .data$gas_id, match_type = "gas_id"
+    )
 
   synonym_lookup <- co2e::gas_synonyms |>
-    dplyr::transmute(key = normalize_key(synonym), gas_id, match_type = "synonym")
+    dplyr::transmute(
+      key = normalize_key(.data$synonym), .data$gas_id, match_type = "synonym"
+    )
 
   # gas_id matches take priority over synonym matches for the same key
   combined_lookup <- dplyr::bind_rows(gas_id_lookup, synonym_lookup) |>
-    dplyr::distinct(key, .keep_all = TRUE)
+    dplyr::distinct(.data$key, .keep_all = TRUE)
 
   tibble::tibble(input = x, key = key) |>
     dplyr::left_join(combined_lookup, by = "key") |>
     dplyr::mutate(
-      match_type = dplyr::if_else(is.na(match_type), "unmatched", match_type)
+      match_type = dplyr::if_else(
+        is.na(.data$match_type), "unmatched", .data$match_type
+      )
     ) |>
-    dplyr::select(input, gas_id, match_type)
+    dplyr::select("input", "gas_id", "match_type")
 }
