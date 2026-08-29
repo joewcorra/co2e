@@ -1,0 +1,26 @@
+Package: co2e
+Title: Global Warming Potential Lookups and CO2-Equivalent Conversion
+Version: 0.0.0.9000
+Authors@R:
+    person("Joe", "Corra", email = "you@example.com", role = c("aut", "cre"))
+Description: Provides curated Global Warming Potential (GWP) values from
+    IPCC Assessment Reports 4 through 6, gas name standardization across
+    common naming conventions (ASHRAE, chemical formula, CAS number), and
+    CO2-equivalent conversion utilities. Values are verified against
+    official IPCC source tables rather than taken from secondary
+    compilations; see the package vignette for source-by-source provenance
+    notes, including a documented discrepancy in published AR6 CFC-11/
+    CFC-12 values.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+    dplyr,
+    tibble,
+    stringr
+Suggests:
+    tidyr,
+    readr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
