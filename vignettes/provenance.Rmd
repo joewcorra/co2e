@@ -40,10 +40,15 @@ build (see `data-raw/build_data.R`).
 
 ## AR6 values are taken from the final published tables
 
-An early, nonfinal draft of the AR6 GWP tables circulated with different
-figures for CFC-11 and CFC-12 than what IPCC ultimately published. `co2e`
-was built directly from the final published AR6 source tables, not that
-draft, so no discrepancy applies to the values in this package.
+IPCC AR6 WGI Chapter 7 Supplementary Material, Table 7.SM.7, as hosted on 
+ipcc.ch, contains incorrect values for CFC-11 and CFC-12. This is acknowledged 
+by the chapter's lead author for the metrics section (Bill Collins) via the 
+chapter's supplementary GitHub repository, but as of this writing no formal 
+IPCC corrigendum has been issued. co2e uses the corrected values (sourced from
+the chapter author's repository and independently corroborated by the GHG 
+Protocol's Global Warming Potential Values, August 2024) rather than the 
+literal printed table for these two substances. This is the only known 
+discrepancy between co2e and the printed Table 7.SM.7.
 
 ## Scope
 

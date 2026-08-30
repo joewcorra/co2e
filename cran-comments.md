@@ -9,9 +9,10 @@ This is a new submission of co2e (version 0.1.0).
   * macOS-latest (release)
   * windows-latest (release)
   * ubuntu-latest (devel, release, oldrel-1)
-* win-builder: <TODO: run devtools::check_win_devel() and check_win_release(), record result>
-* macOS builder: <TODO: run devtools::check_mac_release(), record result>
-* R-hub v2: <TODO: run rhub::rhub_check(), record result>
+* win-builder (R-devel and R-release): 0 errors | 0 warnings | 1 note
+  (the expected "New submission" CRAN incoming feasibility note)
+* macOS builder (mac.r-project.org, R 4.6.1 Patched, aarch64-apple-darwin23 / macOS 26.6):
+  Status OK -- 0 errors | 0 warnings | 0 notes
 
 ## R CMD check results
 

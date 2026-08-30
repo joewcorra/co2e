@@ -7,10 +7,10 @@ Description: Provides curated Global Warming Potential (GWP) values from
     IPCC Assessment Reports 4 through 6, gas name standardization across
     documented naming variants (IUPAC/common names, per-report naming
     changes, and EPA/data.gov naming), and CO2-equivalent conversion
-    utilities. Values are verified against final published IPCC source
-    tables rather than taken from secondary compilations or nonfinal
-    drafts; see the package vignette for source-by-source provenance
-    notes.
+    utilities. Values are drawn from official IPCC source tables, with 
+    corrections applied for two substances where the published table is 
+    known to contain errors; see the package vignette for details and 
+    source-by-source provenance notes.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
